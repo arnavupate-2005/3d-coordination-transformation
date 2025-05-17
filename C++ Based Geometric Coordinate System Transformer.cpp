@@ -5,40 +5,38 @@ using namespace std;
 const double PI = 3.14159265359;
 
 
-// Convert from rectangular (Cartesian) to cylindrical
+
 void rectangularToCylindrical(double x, double y, double z)
  {
     double r = sqrt(x * x + y * y);
     double theta = atan2(y, x) * 180.0 / PI;
     cout << "Cylindrical: r = " << r << ", theta = " << theta << " degrees, z = " << z << endl;
 }
-// Convert from rectangular (Cartesian) to spherical
+
 void rectangularToSpherical(double x, double y, double z) {
     double r = sqrt(x * x + y * y + z * z);
-    double theta = atan2(y, x) * 180.0 / PI; // Convert to degrees
-    double phi = acos(z / r) * 180.0 / PI;   // Convert to degrees
+    double theta = atan2(y, x) * 180.0 / PI; 
+    double phi = acos(z / r) * 180.0 / PI;   
     cout << "Spherical: r = " << r << ", theta = " << theta << " degrees, phi = " << phi << " degrees" << endl;
 }
-// Convert from cylindrical to rectangular (Cartesian)
 void cylindricalToRectangular(double r, double theta, double z) {
-    double x = r * cos(theta * PI / 180.0); // Convert degrees to radians
-    double y = r * sin(theta * PI / 180.0); // Convert degrees to radians
+    double x = r * cos(theta * PI / 180.0); 
+    double y = r * sin(theta * PI / 180.0); 
     cout << "Rectangular: x = " << x << ", y = " << y << ", z = " << z << endl;
 }
- //Convert from cylindrical to spherical
+
 void cylindricalToSpherical(double r, double theta, double z) {
     double x = r * cos(theta * PI / 180.0);
     double y = r * sin(theta * PI / 180.0);
-    rectangularToSpherical(x, y, z); // Call rectangular to spherical conversion
-}
-// Convert from spherical to rectangular (Cartesian)
+    rectangularToSpherical(x, y, z); 
+
 void sphericalToRectangular(double r, double theta, double phi) {
     double x = r * sin(phi * PI / 180.0) * cos(theta * PI / 180.0);
     double y = r * sin(phi * PI / 180.0) * sin(theta * PI / 180.0);
     double z = r * cos(phi * PI / 180.0);
     cout << "Rectangular: x = " << x << ", y = " << y << ", z = " << z << endl;
 }
-// Convert from spherical to cylindrical
+
 void sphericalToCylindrical(double r, double theta, double phi) {
     double z = r * cos(phi * PI / 180.0);
     double r_cyl = r * sin(phi * PI / 180.0);
